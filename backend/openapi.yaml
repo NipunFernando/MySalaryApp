@@ -1,0 +1,51 @@
+openapi: 3.0.0
+info:
+  title: MySalary App API
+  version: 1.0.0
+paths:
+  /calculate-salary:
+    post:
+      summary: Calculate gross salary
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                netSalary:
+                  type: number
+                foodExpenses:
+                  type: number
+                commuteExpenses:
+                  type: number
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  grossSalaryUSD:
+                    type: number
+                  grossSalaryLKR:
+                    type: number
+  /exchange-rates:
+    get:
+      summary: Get exchange rates
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    date:
+                      type: string
+                      format: date
+                    rate:
+                      type: number
