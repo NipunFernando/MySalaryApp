@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Salary Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Salary Calculator</h1>
+    <form method="POST" action="/">
+        {{ form.hidden_tag() }}
+        {{ form.salary_lkr.label }} {{ form.salary_lkr(size=20) }}<br>
+        {{ form.salary_usd.label }} {{ form.salary_usd(size=20) }}<br>
+        {{ form.commute_expenses.label }} {{ form.commute_expenses(size=20) }}<br>
+        {{ form.food_expenses.label }} {{ form.food_expenses(size=20) }}<br>
+        {{ form.epf_percent.label }} {{ form.epf_percent(size=20) }}<br>
+        {{ form.etf_percent.label }} {{ form.etf_percent(size=20) }}<br>
+        {{ form.other_expenses.label }} {{ form.other_expenses(size=20) }}<br>
+        {{ form.other_expenses_comment.label }} {{ form.other_expenses_comment(size=40) }}<br>
+        {{ form.exchange_rate.label }} {{ form.exchange_rate(size=20) }}<br>
+        {{ form.submit() }}
+    </form>
+</body>
+</html>

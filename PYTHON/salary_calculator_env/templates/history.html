@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Salary History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Salary History</h1>
+
+    <h2>USD to LKR Exchange Rate History</h2>
+    <div>
+        {{ graph_url | safe }}
+    </div>
+
+    <h2>Salary Entries</h2>
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Salary LKR</th>
+            <th>Salary USD</th>
+            <th>Commute Expenses</th>
+            <th>Food Expenses</th>
+            <th>Other Expenses</th>
+            <th>Net Salary</th>
+        </tr>
+        {% for entry in salary_entries %}
+        <tr>
+            <td>{{ entry.date_added.strftime('%Y-%m-%d') }}</td>
+            <td>{{ entry.salary_lkr }}</td>
+            <td>{{ entry.salary_usd }}</td>
+            <td>{{ entry.commute_expenses }}</td>
+            <td>{{ entry.food_expenses }}</td>
+            <td>{{ entry.other_expenses }}</td>
+            <td>{{ entry.net_salary }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
